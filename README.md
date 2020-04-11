@@ -1,7 +1,5 @@
-# OWASP SAMM 2.0
+# OWASP SAMM 2.0 - Trial Repo
 
-Trial Repo
-=======
 # SAMM
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
