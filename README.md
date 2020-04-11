@@ -39,12 +39,12 @@
 ![Profile Page](src/assets/media/sc4.PNG)
 
 
-### Security Practice
+### Security Practice Section
 
 ![Security Practice](src/assets/media/sc5.png)
 
 
-### Score Showcase
+### Score Panel
 
 ![Chart Module](src/assets/media/sc6.png)
 
