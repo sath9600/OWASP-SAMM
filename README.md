@@ -1,6 +1,68 @@
-# OWASP SAMM 2.0 - Trial Repo
+# OWASP SAMM 2.0 Trial Repo
+
+<p align="center"><a href="https://owasp.org" target="_blank" rel="noopener noreferrer"><img width="100" src="src/favicon.ico" alt="OWASP logo"></a></p>
+
+<p align="center">
+  <a href="https://circleci.com/gh/vuejs/vue/tree/dev"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg?sanitize=true" alt="Build Status"></a>
+  <a href="https://codecov.io/github/vuejs/vue?branch=dev"><img src="https://img.shields.io/codecov/c/github/vuejs/vue/dev.svg?sanitize=true" alt="Coverage Status"></a>
+  <a href="https://npmcharts.com/compare/vue?minimal=true"><img src="https://img.shields.io/npm/dm/vue.svg?sanitize=true" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/v/vue.svg?sanitize=true" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg?sanitize=true" alt="License"></a>
+  <a href="https://chat.vuejs.org/"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg?sanitize=true" alt="Chat"></a>
+  <br>
+  <a href="https://app.saucelabs.com/builds/50f8372d79f743a3b25fb6ca4851ca4c"><img src="https://app.saucelabs.com/buildstatus/vuejs" alt="Build Status"></a>
+</p>
 
 # SAMM
+
+
+### Explanatory Video
+
+
+### Login Page
+
+![Login Page](src/assets/media/sc1.PNG)
+
+
+### Home Dashboard
+
+![Home Page](src/assets/media/sc2.png)
+
+
+### Navigation Module
+
+![Navigation](src/assets/media/sc3.png)
+
+
+### Profile Management
+
+![Profile Page](src/assets/media/sc4.PNG)
+
+
+### Security Practice
+
+![Security Practice](src/assets/media/sc5.png)
+
+
+### Score Showcase
+
+![Chart Module](src/assets/media/sc6.png)
+
+
+### Checklist Module
+
+![Checklist Module](src/assets/media/sc7.png)
+
+
+### Report Generation
+
+![Report Page](src/assets/media/sc8.png)
+
+
+### Edit Score Module
+
+![Edit Score Module](src/assets/media/sc9.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
