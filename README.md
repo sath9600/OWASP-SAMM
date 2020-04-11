@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # OWASP SAMM 2.0
 
 Trial Repo
