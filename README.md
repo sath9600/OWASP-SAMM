@@ -18,6 +18,8 @@
 
 ### Explanatory Video
 
+![Video](src/assets/media/VIDEO-2020-03-21-12-08-11.mp4)
+
 
 ### Login Page
 
@@ -33,10 +35,6 @@
 
 ![Navigation](src/assets/media/sc3.png)
 
-
-### Profile Management
-
-![Profile Page](src/assets/media/sc4.PNG)
 
 
 ### Security Practice Section
