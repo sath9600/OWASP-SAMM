@@ -84,7 +84,7 @@
     "svg-icon": "^0.8.2",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",
-    "xlsx": "^0.15.4",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
