@@ -95,7 +95,7 @@ export class RETablesComponent implements OnInit {
  
  //  console.log(this.data_filtered[0]);
        // if(data.success)
-       let url='http://'+ hostname +':3000/api/reportPdf_re?val='+f;
+       let url='http://'+ hostname +':3001/api/reportPdf_re?val='+f;
        console.log(url);
        window.open(url);
          // console.log(data);
@@ -165,7 +165,7 @@ export class RETablesComponent implements OnInit {
   }
 
   download() {
-    let url = 'http://'+ hostname +':3000/api/reportexcel'
+    let url = 'http://'+ hostname +':3001/api/reportexcel'
     window.open(url);
   }
   

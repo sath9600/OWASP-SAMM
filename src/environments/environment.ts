@@ -8,8 +8,8 @@ export const hostname = 'localhost';  // Feed your public IP for global access.
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://' + hostname + ':3000/api',
-  apiBaseUrl1: 'http://' + hostname + ':3000',
+  apiBaseUrl: 'http://' + hostname + ':3001/api',
+  apiBaseUrl1: 'http://' + hostname + ':3001',
 };
 
 /*
