@@ -14,9 +14,9 @@ verifyToken = (req, res, next) => {
 
 	jwt.verify(token, config.secret, (err, decoded) => {
 		if (err){
-			return res.status(500).send({
+			return res.status(401).send({
 					auth: false,
-					message: 'Fail to Authentication. Error -> ' + err
+					message: 'Unauthorized. Invalid token.'
 				});
 		}
 		req.userId = decoded.id;
@@ -25,42 +25,52 @@ verifyToken = (req, res, next) => {
 }
 
 isAdmin = (req, res, next) => {
-	User.findById(req.userId)
+	User.findByPk(req.userId)
 		.then(user => {
+			if (!user) {
+				return res.status(404).send({ message: "User not found." });
+			}
+			
 			user.getRoles().then(roles => {
 				for(let i=0; i<roles.length; i++){
-					console.log(roles[i].name);
 					if(roles[i].name.toUpperCase() === "ADMIN"){
 						next();
 						return;
 					}
 				}
 
-				res.status(403).send("Require Admin Role!");
+				res.status(403).send({ message: "Require Admin Role!" });
 				return;
-			})
-		})
+			}).catch(err => {
+				res.status(500).send({ message: "Error retrieving roles: " + err.message });
+			});
+		}).catch(err => {
+			res.status(500).send({ message: "Error retrieving user: " + err.message });
+		});
 }
 
 isauditorOrAdmin = (req, res, next) => {
-	User.findById(req.userId)
+	User.findByPk(req.userId)
 		.then(user => {
+			if (!user) {
+				return res.status(404).send({ message: "User not found." });
+			}
+			
 			user.getRoles().then(roles => {
 				for(let i=0; i<roles.length; i++){
-					if(roles[i].name.toUpperCase() === "AUDITOR"){
-						next();
-						return;
-					}
-
-					if(roles[i].name.toUpperCase() === "ADMIN"){
+					if(roles[i].name.toUpperCase() === "AUDITOR" || roles[i].name.toUpperCase() === "ADMIN"){
 						next();
 						return;
 					}
 				}
 
-				res.status(403).send("Require AUditor or Admin Roles!");
-			})
-		})
+				res.status(403).send({ message: "Require Auditor or Admin Roles!" });
+			}).catch(err => {
+				res.status(500).send({ message: "Error retrieving roles: " + err.message });
+			});
+		}).catch(err => {
+			res.status(500).send({ message: "Error retrieving user: " + err.message });
+		});
 }
 
 const authJwt = {};

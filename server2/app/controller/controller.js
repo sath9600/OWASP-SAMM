@@ -9,6 +9,22 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 
 exports.signup = (req, res) => {
+	// Input validation
+	if (!req.body.username || !req.body.password || !req.body.email) {
+		return res.status(400).send({ reason: 'Username, password, and email are required fields.' });
+	}
+	
+	// Validate email format
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	if (!emailRegex.test(req.body.email)) {
+		return res.status(400).send({ reason: 'Invalid email format.' });
+	}
+	
+	// Validate password strength
+	if (req.body.password.length < 8) {
+		return res.status(400).send({ reason: 'Password must be at least 8 characters long.' });
+	}
+	
 	// Save User to Database
 	User.create({
 		name: req.body.name,
@@ -52,7 +68,7 @@ exports.signin = (req, res) => {
 		}
 
 		var token = jwt.sign({ id: user.id }, config.secret, {
-			expiresIn: 86400 // expires in 24 hours
+			expiresIn: 3600 // expires in 1 hour
 		});
 
 		var authorities = [];
@@ -75,7 +91,7 @@ exports.signin = (req, res) => {
 exports.userContent = (req, res) => {
 	User.findOne({
 		where: { id: req.userId },
-		attributes: ['name','lname','username', 'email','role','password','mobile','createdAt','updatedAt','country','groupname','company','empid'],
+		attributes: ['name','lname','username', 'email','role','mobile','createdAt','updatedAt','country','groupname','company','empid'],
 		include: [{
 			model: Role,
 			attributes: ['id', 'name'],

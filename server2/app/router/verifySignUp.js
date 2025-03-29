@@ -11,7 +11,7 @@ checkDuplicateUserNameOrEmail = (req, res, next) => {
 		}
 	}).then(user => {
 		if (user) {
-			res.status(400).send("Fail -> Username is already taken!");
+			res.status(400).send({ reason: "Username is already taken!" });
 			return;
 		}
 
@@ -22,19 +22,31 @@ checkDuplicateUserNameOrEmail = (req, res, next) => {
 			}
 		}).then(user => {
 			if (user) {
-				res.status(400).send("Fail -> Email is already in use!");
+				res.status(400).send({ reason: "Email is already in use!" });
 				return;
 			}
 
 			next();
+		}).catch(err => {
+			res.status(500).send({ reason: "Error checking email: " + err.message });
 		});
+	}).catch(err => {
+		res.status(500).send({ reason: "Error checking username: " + err.message });
 	});
 }
 
 checkRolesExisted = (req, res, next) => {
+	// Check if roles array exists
+	if (!req.body.roles || !Array.isArray(req.body.roles)) {
+		// Default to USER role if not specified
+		req.body.roles = ['USER'];
+		next();
+		return;
+	}
+	
 	for (let i = 0; i < req.body.roles.length; i++) {
 		if (!ROLEs.includes(req.body.roles[i].toUpperCase())) {
-			res.status(400).send("Fail -> Does NOT exist Role = " + req.body.roles[i]);
+			res.status(400).send({ reason: "Invalid role: " + req.body.roles[i] });
 			return;
 		}
 	}
